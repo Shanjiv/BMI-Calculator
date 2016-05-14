@@ -65,6 +65,12 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="70" minValue="10" maxValue="250" translatesAutoresizingMaskIntoConstraints="NO" id="Hoq-t8-is2">
+                                <rect key="frame" x="177" y="136" width="395" height="31"/>
+                                <connections>
+                                    <action selector="kgSet:" destination="BYZ-38-t0r" eventType="valueChanged" id="EXf-7K-1d0"/>
+                                </connections>
+                            </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-kg-XPs">
                                 <rect key="frame" x="31" y="248" width="100" height="73"/>
                                 <subviews>
@@ -112,7 +118,7 @@
                                     <action selector="cmSet:" destination="BYZ-38-t0r" eventType="valueChanged" id="roX-pn-EU6"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-Ch-9iv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-Ch-9iv">
                                 <rect key="frame" x="244" y="443" width="112" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="3y0-gs-rwy"/>
@@ -122,7 +128,7 @@
                                     <action selector="calculateTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LtN-Sl-Roh"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhU-42-tNM">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhU-42-tNM">
                                 <rect key="frame" x="31" y="366" width="549" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="549" id="v8p-ps-IYd"/>
@@ -131,25 +137,35 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="70" minValue="10" maxValue="250" translatesAutoresizingMaskIntoConstraints="NO" id="Hoq-t8-is2">
-                                <rect key="frame" x="177" y="136" width="395" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAk-la-gag">
+                                <rect key="frame" x="281" y="481" width="39" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SIF-rd-yRB"/>
+                                    <constraint firstAttribute="width" constant="39" id="mdG-r3-NKy"/>
+                                </constraints>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="kgSet:" destination="BYZ-38-t0r" eventType="valueChanged" id="EXf-7K-1d0"/>
+                                    <action selector="resetTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6B2-Yn-CUS"/>
                                 </connections>
-                            </slider>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dAk-la-gag" firstAttribute="top" secondItem="dR2-Ch-9iv" secondAttribute="bottom" constant="8" id="2Cb-9e-wlc"/>
                             <constraint firstItem="qvh-nA-Rri" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="94" id="6eb-Uw-INY"/>
                             <constraint firstItem="qvh-nA-Rri" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="BS5-Yb-c45"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hoq-t8-is2" secondAttribute="trailing" constant="10" id="Dzh-QX-9F1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tHU-H2-oSe" secondAttribute="trailing" constant="10" id="EKL-XK-yhB"/>
+                            <constraint firstItem="dAk-la-gag" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GhW-JR-Sz0"/>
                             <constraint firstItem="KhU-42-tNM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HIm-ew-owp"/>
-                            <constraint firstItem="dR2-Ch-9iv" firstAttribute="top" secondItem="KhU-42-tNM" secondAttribute="bottom" constant="56" id="K4d-Sj-9Zh"/>
+                            <constraint firstItem="dR2-Ch-9iv" firstAttribute="top" secondItem="KhU-42-tNM" secondAttribute="bottom" constant="15" id="K4d-Sj-9Zh"/>
                             <constraint firstItem="Hoq-t8-is2" firstAttribute="top" secondItem="eSD-jg-rOv" secondAttribute="bottom" constant="87" id="K8Y-by-fdv"/>
                             <constraint firstItem="dR2-Ch-9iv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kso-8L-SWA"/>
                             <constraint firstItem="Hoq-t8-is2" firstAttribute="leading" secondItem="qvh-nA-Rri" secondAttribute="trailing" constant="48" id="PkL-YY-25p"/>
                             <constraint firstItem="KhU-42-tNM" firstAttribute="top" secondItem="1g0-kg-XPs" secondAttribute="bottom" constant="45" id="Xg4-Ir-f37"/>
+                            <constraint firstItem="dAk-la-gag" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="196" id="aPp-4U-xTy"/>
                             <constraint firstItem="tHU-H2-oSe" firstAttribute="top" secondItem="Hoq-t8-is2" secondAttribute="bottom" constant="105" id="hf6-Pg-DHy"/>
                             <constraint firstItem="eSD-jg-rOv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xDI-Bs-tdC"/>
                             <constraint firstItem="tHU-H2-oSe" firstAttribute="leading" secondItem="1g0-kg-XPs" secondAttribute="trailing" constant="48" id="xm8-se-lhl"/>

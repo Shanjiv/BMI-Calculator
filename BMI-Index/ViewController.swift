@@ -61,6 +61,18 @@ class ViewController: UIViewController {
     
     
     
+    @IBAction func resetTapped(sender: AnyObject) {
+
+        outputLabel.hidden = true
+        kgField.text = "70"
+        kgSlider.value = 70
+        cmField.text = "170"
+        cmSlider.value = 170
+        
+    }
+    
+    
+    
     @IBAction func kgSet(sender: AnyObject) {
         kgField.text = "\(Int(kgSlider.value))"
         
@@ -71,6 +83,9 @@ class ViewController: UIViewController {
     @IBAction func cmSet(sender: AnyObject) {
         cmField.text = "\(Int(cmSlider.value))"
     }
+    
+    
+    
     
     
     override func viewDidLoad() {
