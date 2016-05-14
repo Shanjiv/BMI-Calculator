@@ -9,7 +9,70 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var kgField: UITextField!
+    
+    
+    
+    @IBOutlet weak var cmField: UITextField!
+    
+    @IBOutlet weak var kgSlider: UISlider!
 
+    
+    @IBOutlet weak var cmSlider: UISlider!
+    
+    @IBOutlet weak var outputLabel: UILabel!
+    
+    
+    @IBAction func calculateTapped(sender: AnyObject) {
+        
+        // kg / m^2
+        
+        let kgValue = Int(kgField.text!)
+        let cmValue = Int(cmField.text!)
+        
+        var output: String?
+        
+        if kgValue != nil && cmValue != nil{
+        
+            let sizeInMeter = Double(cmValue!) / 100
+        
+            let bmi = Int(Double(kgValue!) / (sizeInMeter * sizeInMeter))
+            
+            
+            output = "Dein BMI: \(bmi)"
+        
+        } else {
+            
+            output = "CM oder KG nicht lesbar"
+            
+        }
+        
+        if output != nil {
+            
+            outputLabel.hidden = false
+            outputLabel.text = output
+            
+        }
+        
+        
+    }
+    
+    
+    
+    @IBAction func kgSet(sender: AnyObject) {
+        kgField.text = "\(Int(kgSlider.value))"
+        
+        
+    }
+    
+    
+    @IBAction func cmSet(sender: AnyObject) {
+        cmField.text = "\(Int(cmSlider.value))"
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

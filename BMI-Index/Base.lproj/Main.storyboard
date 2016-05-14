@@ -54,7 +54,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCM-wf-0K5">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="70" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCM-wf-0K5">
                                         <rect key="frame" x="0.0" y="43" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="7gc-Oz-M55"/>
@@ -65,9 +65,6 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Hoq-t8-is2">
-                                <rect key="frame" x="177" y="136" width="395" height="31"/>
-                            </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-kg-XPs">
                                 <rect key="frame" x="31" y="248" width="100" height="73"/>
                                 <subviews>
@@ -94,7 +91,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-7v-WtN">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="170" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-7v-WtN">
                                         <rect key="frame" x="0.0" y="43" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ErZ-PD-XIb"/>
@@ -109,8 +106,11 @@
                                     <constraint firstItem="g76-0I-PpE" firstAttribute="top" secondItem="zkO-ET-VE2" secondAttribute="bottom" constant="5" id="VK0-ma-vAp"/>
                                 </constraints>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tHU-H2-oSe">
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="170" minValue="50" maxValue="220" translatesAutoresizingMaskIntoConstraints="NO" id="tHU-H2-oSe">
                                 <rect key="frame" x="177" y="271" width="395" height="31"/>
+                                <connections>
+                                    <action selector="cmSet:" destination="BYZ-38-t0r" eventType="valueChanged" id="roX-pn-EU6"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-Ch-9iv">
                                 <rect key="frame" x="244" y="443" width="112" height="30"/>
@@ -118,6 +118,9 @@
                                     <constraint firstAttribute="width" constant="112" id="3y0-gs-rwy"/>
                                 </constraints>
                                 <state key="normal" title="Jetzt berechnen"/>
+                                <connections>
+                                    <action selector="calculateTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LtN-Sl-Roh"/>
+                                </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhU-42-tNM">
                                 <rect key="frame" x="31" y="366" width="549" height="21"/>
@@ -128,6 +131,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="70" minValue="10" maxValue="250" translatesAutoresizingMaskIntoConstraints="NO" id="Hoq-t8-is2">
+                                <rect key="frame" x="177" y="136" width="395" height="31"/>
+                                <connections>
+                                    <action selector="kgSet:" destination="BYZ-38-t0r" eventType="valueChanged" id="EXf-7K-1d0"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -148,6 +157,13 @@
                             <constraint firstItem="tHU-H2-oSe" firstAttribute="leading" secondItem="1g0-kg-XPs" secondAttribute="trailing" constant="48" id="yfX-es-1t3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cmField" destination="ShR-7v-WtN" id="Nlq-Lt-en0"/>
+                        <outlet property="cmSlider" destination="tHU-H2-oSe" id="XD7-WI-nCg"/>
+                        <outlet property="kgField" destination="VCM-wf-0K5" id="xUR-Yp-lYF"/>
+                        <outlet property="kgSlider" destination="Hoq-t8-is2" id="7t4-MT-4LO"/>
+                        <outlet property="outputLabel" destination="KhU-42-tNM" id="p4s-83-zdl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
